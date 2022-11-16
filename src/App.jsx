@@ -4,6 +4,60 @@ import './global.css';
 import styles from './App.module.css';
 import { Sidebar } from './components/Sidebar';
 
+const posts = [
+  {
+    id: 1,
+    author: {
+      avatarUrl: 'https://github.com/izadoranetz.png',
+      name: 'Izadora Netz',
+      role: 'Web Dev',
+    },
+    content: [
+      { type: 'paragraph', content: 'Fala galeraa' },
+      {
+        type: 'paragraph',
+        content: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.',
+      },
+      { type: 'link', content: 'https://behance.net/izadoranetz' },
+    ],
+    publishedAt: new Date('2022-11-13 20:00:00'),
+  },
+  {
+    id: 2,
+    author: {
+      avatarUrl: 'https://github.com/angelabauer.png',
+      name: 'Angela Yu',
+      role: 'Dev e Professora',
+    },
+    content: [
+      { type: 'paragraph', content: 'Meow' },
+      {
+        type: 'paragraph',
+        content: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.',
+      },
+      { type: 'link', content: 'https://github.com/angelabauer' },
+    ],
+    publishedAt: new Date('2022-11-13 20:13:00'),
+  },
+  {
+    id: 3,
+    author: {
+      avatarUrl: 'https://github.com/izadoranetz.png',
+      name: 'Cajuzinha',
+      role: 'Dona de tudo',
+    },
+    content: [
+      { type: 'paragraph', content: 'Meooooow ow ow ow' },
+      {
+        type: 'paragraph',
+        content: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.',
+      },
+      { type: 'link', content: 'https://behance.net/izadoranetz' },
+    ],
+    publishedAt: new Date('2022-11-14 20:33:00'),
+  },
+];
+
 export function App() {
   return (
     <div>
@@ -12,14 +66,15 @@ export function App() {
       <div className={styles.wrapper}>
         <Sidebar />
         <main>
-          <Post
-            author="Izadora andorinea"
-            content="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas, quisquam eius, aliquid aut ut, fugit eveniet ea voluptates assumenda temporibus accusamus iste enim quidem fugiat. Molestiae rerum officiis aliquid quas?"
-          />
-          <Post
-            author="Cacau gatineo"
-            content="Birman manx lynx yet cheetah. Cornish rex turkish angora malkin. Abyssinian american bobtail or thai or siberian, but himalayan but scottish fold and lynx. Himalayan."
-          />
+          {posts.map((post) => {
+            return (
+              <Post
+                author={post.author}
+                content={post.content}
+                publishedAt={post.publishedAt}
+              />
+            );
+          })}
         </main>
       </div>
     </div>
