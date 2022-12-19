@@ -16,7 +16,7 @@ const posts = [
       { type: 'paragraph', content: 'Fala galeraa' },
       {
         type: 'paragraph',
-        content: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.',
+        content: 'Lorem ipsum, dolor sit amet consectetur adipisicing.',
       },
       { type: 'link', content: 'https://behance.net/izadoranetz' },
     ],
@@ -33,7 +33,7 @@ const posts = [
       { type: 'paragraph', content: 'Meow' },
       {
         type: 'paragraph',
-        content: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.',
+        content: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit...',
       },
       { type: 'link', content: 'https://github.com/angelabauer' },
     ],
@@ -50,7 +50,7 @@ const posts = [
       { type: 'paragraph', content: 'Meooooow ow ow ow' },
       {
         type: 'paragraph',
-        content: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.',
+        content: 'Lorem ipsum, dolor sit amet consectetur elit.',
       },
       { type: 'link', content: 'https://behance.net/izadoranetz' },
     ],
@@ -69,6 +69,7 @@ export function App() {
           {posts.map((post) => {
             return (
               <Post
+                key={post.id}
                 author={post.author}
                 content={post.content}
                 publishedAt={post.publishedAt}
